@@ -2,6 +2,27 @@
   <div>
     <h1>Customers</h1>
     <hr/>
+    <div class="row">
+      <div class="col-sm-4">
+        <form @submit.prevent="addCustomer">
+          <div class="form-group">
+            <label for="name">First name</label>
+            <input v-model="newCustomer.firstName" type="text" class="form-control" id="first-name" placeholder="Enter name">
+          </div>
+          <div class="form-group">
+            <label for="name">Last name</label>
+            <input v-model="newCustomer.lastName" type="text" class="form-control" id="last-name" placeholder="Enter name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input v-model="newCustomer.email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <br/>
     <table class="table">
       <thead>
         <tr>
@@ -71,6 +92,11 @@
 
         removeCustomer(index) {
           this.customers.splice(index, 1);
+        },
+
+        addCustomer() {
+          this.customers.push(this.newCustomer)
+          this.newCustomer = {}
         }
       }
     }
