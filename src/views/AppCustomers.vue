@@ -1,10 +1,15 @@
 <template>
-  <div>
-    Customers
+  <div >
+    <app-customers></app-customers>
   </div>
 </template>
-
 <script>
-  export default {
+// @ is an alias to /src
+import AppCustomers from '../components/AppCustomers.vue'
+export default {
+  name: 'Customers',
+  components: {
+    AppCustomers
   }
+}
 </script>
